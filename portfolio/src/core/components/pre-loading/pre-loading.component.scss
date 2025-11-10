@@ -1,0 +1,43 @@
+/* Hiding class, making content visible only to screen readers but not visually */
+/* "sr" meaning "screen-reader" */
+/* https://css-tricks.com/inclusively-hidden/ */
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+html, body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgb(12, 12, 12);
+}
+
+.container {
+  background-color: rgb(12, 12, 12);
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  opacity: 0;
+}
+
+.animate-me {
+  color: #dfdcff;
+  font-size: 25px;
+  box-sizing: border-box;
+  padding: 5%;
+  width: 100%;
+  text-align: left;
+  perspective: 500px;
+  font-style: italic;
+}

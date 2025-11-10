@@ -1,3 +1,15 @@
 import { Routes } from '@angular/router';
+import { HomePageComponent } from '../core/components/home-page/home-page.component';
+import { PreLoadingComponent } from '../core/components/pre-loading/pre-loading.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path:'',
+    component: PreLoadingComponent
+  },
+  {
+    // path:'redirect/:redirection',
+    path:'home',
+    component:HomePageComponent
+  }
+];
