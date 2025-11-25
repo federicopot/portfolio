@@ -1,6 +1,8 @@
 header{
   position: absolute;
-
+  position: sticky;   /* rende l’header “appiccicoso” */
+  top: 0;             /* sempre in cima */
+  z-index: 1000;      /* sopra tutti gli altri elementi */
   top: 5px;
   left: 25%;
 
@@ -42,6 +44,9 @@ header{
         &#focused{
           background-color: rgb(0, 0, 0);
           svg{
+            fill: #fff;
+          }
+          path{
             fill: #fff;
           }
           a{

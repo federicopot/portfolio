@@ -8,7 +8,6 @@ export const routes: Routes = [
     component: PreLoadingComponent
   },
   {
-    // path:'redirect/:redirection',
     path:'home',
     component:HomePageComponent
   }

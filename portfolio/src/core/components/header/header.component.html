@@ -1,14 +1,14 @@
 <header>
   <nav>
     <ul>
-      <li>
+      <li id="{{fragmentCompute()==listaLink[0]?'focused':''}}">
         <svg fill="#000000" width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M21.66,10.25l-9-8a1,1,0,0,0-1.32,0l-9,8a1,1,0,0,0-.27,1.11A1,1,0,0,0,3,12H4v9a1,1,0,0,0,1,1H19a1,1,0,0,0,1-1V12h1a1,1,0,0,0,.93-.64A1,1,0,0,0,21.66,10.25ZM13,20H11V17a1,1,0,0,1,2,0Zm5,0H15V17a3,3,0,0,0-6,0v3H6V12H18ZM5.63,10,12,4.34,18.37,10Z" />
         </svg>
-        <a href="">Home</a>
+        <a [routerLink]="['/home']" fragment="home">Home</a>
       </li>
-      <li id="focused">
+      <li id="{{fragmentCompute()==listaLink[1]?'focused':''}}">
         <svg fill="#000000" width="18px" height="18px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
           <g id="about">
             <path d="M16,16A7,7,0,1,0,9,9,7,7,0,0,0,16,16ZM16,4a5,5,0,1,1-5,5A5,5,0,0,1,16,4Z" />
@@ -17,21 +17,21 @@
           </g>
 
         </svg>
-        <a href="">About</a>
+        <a [routerLink]="['/home']" fragment="about">About</a>
       </li>
-      <li>
+      <li id="{{fragmentCompute()==listaLink[2]?'focused':''}}">
         <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M4 21H20C21.1046 21 22 20.1046 22 19V8C22 6.89543 21.1046 6 20 6H11L9.29687 3.4453C9.1114 3.1671 8.79917 3 8.46482 3H4C2.89543 3 2 3.89543 2 5V19C2 20.1046 2.89543 21 4 21Z"
             stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-        <a href="">Projects</a>
+        <a [routerLink]="['/home']" fragment="projects">Projects</a>
       </li>
-      <li>
+      <li id="{{fragmentCompute()==listaLink[3]?'focused':''}}">
         <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 3H0v18h24V3H2zm20 2v14H2V5h20zM10 7H6v4h4V7zm-6 6h8v4H4v-4zm16-6h-6v2h6V7zm-6 4h6v2h-6v-2zm6 4h-6v2h6v-2z" fill="#000000"/>
+          <path d="M2 3H0v18h24V3H2zm20 2v14H2V5h20zM10 7H6v4h4V7zm-6 6h8v4H4v-4zm16-6h-6v2h6V7zm-6 4h6v2h-6v-2zm6 4h-6v2h6v-2z" fill="#fff"/>
         </svg>
-        <a href="">Contact</a>
+        <a [routerLink]="['/home']" fragment="contacts">Contact</a>
       </li>
     </ul>
   </nav>
