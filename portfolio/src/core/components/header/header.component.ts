@@ -10,9 +10,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 export class HeaderComponent implements AfterViewInit{
 
   listaLink : string[] = ["home", "about", "projects", "contacts"]
+
   #router = inject(ActivatedRoute)
   #fragment = signal<String>("home")
+
   fragmentCompute = computed<String>(()=>this.#fragment())
+
   ngAfterViewInit(): void {
     this.#router.fragment.subscribe(resp=>{
       if(resp)
