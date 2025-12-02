@@ -5,9 +5,9 @@ import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
 import { ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-
-gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, ScrollToPlugin);
 
 @Component({
   selector: 'app-home-page',
@@ -107,5 +107,10 @@ export class HomePageComponent implements AfterViewInit {
         }
       });
     })
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        gsap.to(window, { duration: 2, scrollTo: `#${fragment}` });
+      }
+    });
   }
 }
