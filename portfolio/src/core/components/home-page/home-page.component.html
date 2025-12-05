@@ -4,16 +4,10 @@
     <section id="home">
       <div class="colls">
         <h1>Hi, I'm Federico Potrich</h1>
-        <h2 id="testoAnimato">Coding lover</h2>
-        <p id="testoAnimato1">
-          I'm a student at Marconi Alta Formazione in Rovereto, specializing in computer science and driven by a deep
-          passion for programming.
-          <br>
-          I've independently explored languages such as Java, C#, and HTML, enhancing my skills through a variety of
-          hands-on projects.
-          <br>
-          Outside of coding, I enjoy nurturing my creative and athletic sides through reading, drawing, and swimming.
-        </p>
+        <div class="texts" aria-hidden="true">
+          <h2 id="testoAnimato"></h2>
+          <p id="testoAnimato1"></p>
+        </div>
         <div class="position">
           <!-- icon -->
           <svg fill="#000000" width="20px" height="20px" viewBox="0 0 32 32" version="1.1"
@@ -76,20 +70,73 @@
 
       </div>
     </section>
-    <section id="projects">
+    <section id="projects" class="section-projects">
       <div class="colls">
-
+        <h3>Projects</h3>
+        <p class="muted">Selected works — click a card to open the repo/demo.</p>
       </div>
-      <div class="colls">
 
+      <div class="colls projects-grid" aria-live="polite">
+        <!-- i progetti sono generati dall'array 'projects' nel TS -->
+        @for(p of service.projectComp(); track $index){
+          <div class="project-card" tabindex="0" role="button">
+            <div class="project-thumb" [style.backgroundImage]="'url(' + p.image + ')'"></div>
+            <div class="project-body">
+              <h4>{{p.title}}</h4>
+              <p class="desc">{{p.short}}</p>
+              <div class="tags">
+                @for(t of service.projectComp().tags; track $index){
+                  <span class="tag">{{t}}</span>
+                }
+              </div>
+              <div class="project-links">
+                @if(p.demo){
+                  <a  href="{{p.demo}}" target="_blank" rel="noopener"
+                    (click)="$event.stopPropagation()">Live</a>
+                }
+                @if(p.repo){
+                  <a href="{{p.repo}}" target="_blank" rel="noopener"
+                    (click)="$event.stopPropagation()">Code</a>
+                }
+              </div>
+            </div>
+          </div>
+        }
       </div>
     </section>
-    <section id="contacts">
-      <div class="colls">
 
+    <section id="contacts" class="section-contacts">
+      <div class="colls">
+        <h3>Get in touch</h3>
+        <p>If you'd like to collaborate or just say hi, drop a message.</p>
+
+        <!-- semplice contact form: usa mailto come fallback -->
+        <form class="contact-form">
+          <label>
+            <span>Nome</span>
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            <span>Messaggio</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="btn" type="submit">Invia</button>
+          </div>
+        </form>
       </div>
-      <div class="colls">
 
+      <div class="colls contact-side">
+        <h4>Other ways</h4>
+        <p>Email: <a href="mailto:federico.pot03@gmail.com">federico.pot03&#64;gmail.com</a></p>
+        <p>Location: Trento, Italy</p>
+        <div class="socials">
+          <!-- Inserisci icone social -->
+        </div>
       </div>
     </section>
   </main>

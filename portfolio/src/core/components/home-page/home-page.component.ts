@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { ProjectService } from '../../services/projectService/project.service';
 
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, ScrollToPlugin);
 
@@ -16,28 +17,48 @@ gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, ScrollToPlugin);
   imports: [HeaderComponent, FooterComponent]
 })
 export class HomePageComponent implements AfterViewInit {
-
+  service = inject(ProjectService)
   constructor(private route: ActivatedRoute) { }
 
+
   ngAfterViewInit(): void {
-
+    
     const ctx = gsap.context(() => {
-
+      const cursorTl = gsap.timeline({ repeat: -1 });
       /** TEXT SCRAMBLE */
       const tl = gsap.timeline();
-      tl.from("#testoAnimato", {
+      cursorTl.to("#lineText", {
         opacity: 0,
+        duration: 0.5,
+        ease: "none",
+        delay: 0.2
+      })
+      .to("#lineText", {
+        opacity: 1,
+        duration: 0.5,
+        ease: "none",
+        delay: 0.2
+      });
+
+      tl.to("#testoAnimato", {
+        opacity: 1,
         scrambleText: { text: "Coding lover", chars: "lowerCase" },
         duration: 2
-      });
-      tl.from("#testoAnimato1", {
-        opacity: 0,
+      }).to("#testoAnimato1", {
+        opacity: 1,
         scrambleText: {
-          text: `I'm a student at Marconi Alta Formazione in Rovereto...`,
+          text: `I'm a student at Marconi Alta Formazione in Rovereto, specializing in computer science and driven by a deep
+          passion for programming.
+          \n\r
+          I've independently explored languages such as Java, C#, and HTML, enhancing my skills through a variety of
+          hands-on projects.
+          \n\r
+          Outside of coding, I enjoy nurturing my creative and athletic sides through reading, drawing, and swimming.`,
           chars: "lowerCase"
         },
         duration: 2
-      });
+      })
+      .add(cursorTl);
 
       /** ABOUT - ScrollTrigger + pin + cards */
       const cards = ["#card1", "#card2", "#card3"];
