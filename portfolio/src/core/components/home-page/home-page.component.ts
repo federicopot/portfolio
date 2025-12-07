@@ -22,7 +22,7 @@ export class HomePageComponent implements AfterViewInit {
 
 
   ngAfterViewInit(): void {
-    
+
     const ctx = gsap.context(() => {
       const cursorTl = gsap.timeline({ repeat: -1 });
       /** TEXT SCRAMBLE */
