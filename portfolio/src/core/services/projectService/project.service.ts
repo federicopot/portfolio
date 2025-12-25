@@ -8,25 +8,25 @@ export class ProjectService {
   readonly #projects = [
     {
       title: 'Sama Service Website',
-      short: 'A responsive personal site built with Angular and GSAP.',
+      short: 'A responsive site using angular for an activity',
       tags: ['Angular','GSAP','SCSS'],
-      image: '/assets/images/project-portfolio.jpg',
-      repo: 'https://github.com/yourusername/portfolio',
-      demo: null
+      image: 'project-1.png',
+      repo: null,
+      demo: 'https://centrosamaservice.com/'
     },
     {
       title: 'ER Drawer App',
-      short: 'Small Todo app with local storage and filters.',
+      short: 'Small web app to create ER diagrams for database folowing standards',
       tags: ['JavaScript','HTML'],
-      image: '/assets/images/project-todo.jpg',
-      repo: null,
-      demo: null
+      image: 'project-2.png',
+      repo: 'https://github.com/federicopot/ErDrawer',
+      demo: 'https://erdrawer.netlify.app/'
     },
     {
       title: 'Raspberry Zero W into a printer',
-      short: 'Experimental firmware to emulate a USB printer on ESP32-S3.',
+      short: 'Thesis made for degree',
       tags: ['Embedded','C++'],
-      image: '/assets/images/project-esp32.jpg',
+      image: 'project-3.png',
       repo: null,
       demo: null
     }

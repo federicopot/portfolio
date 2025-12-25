@@ -7,6 +7,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ProjectService } from '../../services/projectService/project.service';
+import { SkillsService } from '../../services/skills/skills.service';
 
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, ScrollToPlugin);
 
@@ -17,7 +18,9 @@ gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, ScrollToPlugin);
   imports: [HeaderComponent, FooterComponent]
 })
 export class HomePageComponent implements AfterViewInit {
-  service = inject(ProjectService)
+  readonly projectService = inject(ProjectService)
+  readonly skillsService = inject(SkillsService)
+
   constructor(private route: ActivatedRoute) { }
 
 

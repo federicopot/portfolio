@@ -1,1 +1,40 @@
-<p>footer works!</p>
+<footer>
+  <div class="footer-content">
+
+    <div class="footer-nav">
+      <h4>Navigazione Rapida</h4>
+      <ul>
+        <li><a [routerLink]="['/home']" fragment="Home">Home</a></li>
+        <li><a [routerLink]="['/home']" fragment="About">About</a></li>
+        <li><a [routerLink]="['/home']" fragment="Projects">Projects</a></li>
+        <li><a [routerLink]="['/home']" fragment="Contacts">Contacts</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-socials">
+      <h4>Connect</h4>
+      <div class="social-icons">
+        @for (link of socialLinks; track $index) {
+          <a
+             [href]="link.url"
+             target="_blank"
+             rel="noopener noreferrer"
+             [attr.aria-label]="'Visit my ' + link.name">
+
+            <svg fill="currentColor" width="24px" height="24px" viewBox="0 0 24 24">
+              <title>{{link.name}}</title>
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </a>
+
+        }
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} Federico Potrich. All rights reserved.</p>
+    <p class="small-text">Designed & Developed with Angular and GSAP.</p>
+  </div>
+</footer>

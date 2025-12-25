@@ -73,37 +73,62 @@
     <section id="projects" class="section-projects">
       <div class="colls">
         <h3>Projects</h3>
-        <p class="muted">Selected works — click a card to open the repo/demo.</p>
+        <p class="muted">These are some of my latest projects</p>
       </div>
 
       <div class="colls projects-grid" aria-live="polite">
         <!-- i progetti sono generati dall'array 'projects' nel TS -->
-        @for(p of service.projectComp(); track $index){
-          <div class="project-card" tabindex="0" role="button">
-            <div class="project-thumb" [style.backgroundImage]="'url(' + p.image + ')'"></div>
-            <div class="project-body">
-              <h4>{{p.title}}</h4>
-              <p class="desc">{{p.short}}</p>
-              <div class="tags">
-                @for(t of service.projectComp().tags; track $index){
-                  <span class="tag">{{t}}</span>
-                }
-              </div>
-              <div class="project-links">
-                @if(p.demo){
-                  <a  href="{{p.demo}}" target="_blank" rel="noopener"
-                    (click)="$event.stopPropagation()">Live</a>
-                }
-                @if(p.repo){
-                  <a href="{{p.repo}}" target="_blank" rel="noopener"
-                    (click)="$event.stopPropagation()">Code</a>
-                }
-              </div>
+        @for(p of projectService.projectComp(); track $index){
+        <div class="project-card" tabindex="0" role="button">
+          <div class="project-thumb" [style.backgroundImage]="'url(' + p.image + ')'"></div>
+          <div class="project-body">
+            <h4>{{p.title}}</h4>
+            <p class="desc">{{p.short}}</p>
+            <div class="tags">
+              @for(t of projectService.projectComp().tags; track $index){
+              <span class="tag">{{t}}</span>
+              }
+            </div>
+            <div class="project-links">
+              @if(p.demo){
+              <a href="{{p.demo}}" target="_blank" rel="noopener" (click)="$event.stopPropagation()">Live</a>
+              }
+              @if(p.repo){
+              <a href="{{p.repo}}" target="_blank" rel="noopener" (click)="$event.stopPropagation()">Code</a>
+              }
             </div>
           </div>
+        </div>
         }
       </div>
     </section>
+
+    <section id="skills" class="section-skills">
+      <div class="colls">
+        <h3>Skills</h3>
+        <p class="muted">Technologies and tools I work with</p>
+      </div>
+
+      <div class="colls skills-grid">
+        @for (skills of skillsService.skillsComp(); track $index) {
+        <div class="skill-card">
+          <span>
+            <!-- ICON SECTION -->
+            <h4>{{skills.section}}</h4>
+          </span>
+          <ul>
+            @for (skill of skills.skills; track $index) {
+            <li>
+              <i class="{{skill.icon}}"></i>
+              <p>{{skill.name}}</p>
+            </li>
+            }
+          </ul>
+        </div>
+        }
+      </div>
+    </section>
+
 
     <section id="contacts" class="section-contacts">
       <div class="colls">
@@ -113,7 +138,7 @@
         <!-- semplice contact form: usa mailto come fallback -->
         <form class="contact-form">
           <label>
-            <span>Nome</span>
+            <span>Name / Company</span>
             <input type="text" name="name" required />
           </label>
           <label>
@@ -121,11 +146,11 @@
             <input type="email" name="email" required />
           </label>
           <label>
-            <span>Messaggio</span>
+            <span>Message</span>
             <textarea name="message" rows="5" required></textarea>
           </label>
           <div class="form-actions">
-            <button class="btn" type="submit">Invia</button>
+            <button class="btn" type="submit">Send</button>
           </div>
         </form>
       </div>
