@@ -111,9 +111,10 @@
 
       <div class="colls skills-grid">
         @for (skills of skillsService.skillsComp(); track $index) {
-        <div class="skill-card">
+        <div class="skill-card" [style.background-color]="skills.colorSection" [style.borderColor]="darkenColor(skills.colorSection)">
           <span>
             <!-- ICON SECTION -->
+            <i class="ion-icon {{skills.icon}}"></i>
             <h4>{{skills.section}}</h4>
           </span>
           <ul>

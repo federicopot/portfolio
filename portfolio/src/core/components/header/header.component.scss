@@ -57,8 +57,9 @@ header{
     }
   }
 }
-svg{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+li svg {
+  width: 18px;
+  height: 18px;
+  display: block;      /* IMPORTANTISSIMO */
+  flex-shrink: 0;      /* evita che flex ricalcoli */
 }

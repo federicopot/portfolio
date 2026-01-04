@@ -1,1 +1,17 @@
-<p>error-page works!</p>
+<div class="container">
+  <div class="first">
+    <h3>OOPS! <br>
+      PAGE NOT FOUND
+    </h3>
+    <p>It seems you've wandered off the path.</p>
+    <p>Don't worry, my portfolio is still here!</p>
+  </div>
+  <div class="second">
+    <h1>404</h1>
+  </div>
+  <div class="third">
+    <a [routerLink]="['/home']"><span>GO HOME</span></a>
+    <a [routerLink]="['/home']" fragment="projects"><span>EXPLORE WORK</span></a>
+    <a [routerLink]="['/home']" fragment="contacts"><span>CONTACT ME</span></a>
+  </div>
+</div>

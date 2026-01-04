@@ -1,0 +1,114 @@
+.container {
+  background: #121212;
+  color: whitesmoke;
+  padding: 25px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .first {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+      margin-bottom: 15px;
+    }
+  }
+
+  .second {
+    h1 {
+      font-size: 25rem;
+    }
+  }
+
+  .third {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    a {
+      position: relative;
+      border-radius: 1em;
+      overflow: hidden;
+      z-index: 0;
+      width: 200px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: 25px;
+      text-decoration: none;
+      color: whitesmoke;
+      transition: all 0.4s ease;
+      /* Aggiungi una transizione per l'animazione */
+
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right,
+        rgb(0, 195, 255),
+        rgb(45, 0, 71)
+        );
+        z-index: 0;
+        transition: all 0.4s ease;
+        /* Aggiungi una transizione per l'animazione */
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 5px;
+        background: #000;
+        border-radius: 0.8em;
+        z-index: 1;
+        transition: all 0.4s ease;
+        /* Aggiungi una transizione per l'animazione */
+      }
+
+      span {
+        position: relative;
+        z-index: 2;
+        transition: all 0.4s ease;
+        /* Aggiungi una transizione per l'animazione */
+      }
+      transition: all 0.4s ease;
+
+      &:hover {
+
+        /* Animazione del bordo colorato (::before) */
+        &::before {
+          /* Applica solo la trasformazione e il cambio di gradiente */
+          transform: scale(1.1); /* Fa ingrandire l'elemento ::before */
+          background: linear-gradient(to right,
+             rgb(45, 0, 71), /* Inverti o cambia il gradiente per un effetto visivo */
+             rgb(0, 195, 255));
+        }
+
+        /* Animazione del buco nero (::after) */
+        &::after {
+           /* Il "buco nero" si restringe leggermente o sparisce per mostrare più ::before */
+           inset: 0;
+           border-radius: 0em;
+        }
+
+        /* Cambia il colore del testo e applica l'ombra */
+        span {
+          text-shadow: 0px 0px 10px rgba(245, 245, 245, 0.253);
+          color: #d8d8d8;
+        }
+      }
+    }
+
+  }
+
+  cursor: default;
+}
+
+::selection {
+  background-color: transparent;
+  cursor: pointer
+}

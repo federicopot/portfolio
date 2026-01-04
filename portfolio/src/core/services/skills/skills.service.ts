@@ -7,7 +7,8 @@ export class SkillsService {
   readonly #skills = [
     {
       section: "Programming",
-      icon: "code",
+      colorSection: "#FADADD",
+      icon: "fa-solid fa-globe",
       skills: [
         { name: "Java", icon: "devicon-java-plain" },
         { name: "C#", icon: "devicon-csharp-plain" },
@@ -19,17 +20,19 @@ export class SkillsService {
     },
     {
       section: "Web Development",
+      colorSection: "#FFEEDB",
       icon: "globe",
       skills: [
         { name: "HTML5", icon: "devicon-html5-plain" },
         { name: "CSS3", icon: "devicon-css3-plain" },
         { name: "SASS", icon: "devicon-sass-original" },
         { name: "Angular", icon: "devicon-angular-plain" },
-        { name: "Angular", icon: "devicon-react-original" }
+        { name: "React", icon: "devicon-react-original" }
       ]
     },
     {
       section: "Databases",
+      colorSection: "#DAF7A6",
       icon: "database",
       skills: [
         { name: "MySQL", icon: "devicon-mysql-original" },
@@ -40,6 +43,7 @@ export class SkillsService {
     },
     {
       section: "Tools & Systems",
+      colorSection: "#E0D3F5",
       icon: "tool",
       skills: [
         { name: "Git", icon: "devicon-git-plain" },
@@ -48,7 +52,10 @@ export class SkillsService {
         { name: "Windows", icon: "devicon-windows11-original" },
         { name: "Raspberry Pi", icon: "devicon-raspberrypi-plain" },
         { name: "Bash", icon: "devicon-bash-plain" },
-        { name: "Powershell", icon: "devicon-powershell-plain" }
+        { name: "Powershell", icon: "devicon-powershell-plain" },
+        { name: "Unity Engine", icon: "devicon-unity-plain" },
+        { name: "Docker", icon: "devicon-docker-plain" },
+
       ]
     }
   ];

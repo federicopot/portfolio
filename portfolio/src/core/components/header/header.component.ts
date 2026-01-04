@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger)
 })
 export class HeaderComponent implements AfterViewInit{
 
-  listaLink: string[] = ["home", "about", "projects", "contacts"];
+  listaLink: string[] = ["home", "about", "projects", "skills","contacts"];
 
   #router = inject(ActivatedRoute);
   #fragment = signal<string>("home");
