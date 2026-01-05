@@ -20,14 +20,28 @@
           <p>Trento in Trentino - Alto Adige Sudtirol</p>
         </div>
         <a href="mailto:federico.pot03@gmail.com">Contact me</a>
-        <a class="btnDownload" href="/CV.pdf" target="_blank"> Download CV</a>
+        <a class="btnDownload" href="/CV.pdf" download> Download CV</a>
         <span class="line"></span>
         <div class="accounts">
           <p>Follow me here: </p>
+          <div class="contactsFollow">
+            @for (item of [
+              {
+                "url":"https://it.linkedin.com/in/federico-potrich-356215272",
+                "icon":"devicon-linkedin-plain"
+              },
+              {
+                "url":"https://github.com/federicopot",
+                "icon":"devicon-github-plain"
+              }
+            ]; track $index) {
+              <a href="{{item.url}}" target="_blank"><i class="{{item.icon}}"></i></a>
+            }
+          </div>
         </div>
       </div>
       <div class="colls">
-        <!-- <div id="pfp"></div> -->
+        <div id="pfp"></div>
       </div>
     </section>
     <section id="about">
@@ -111,7 +125,8 @@
 
       <div class="colls skills-grid">
         @for (skills of skillsService.skillsComp(); track $index) {
-        <div class="skill-card" [style.background-color]="skills.colorSection" [style.borderColor]="darkenColor(skills.colorSection)">
+        <div class="skill-card" [style.background-color]="skills.colorSection"
+          [style.borderColor]="darkenColor(skills.colorSection)">
           <span>
             <!-- ICON SECTION -->
             <i class="ion-icon {{skills.icon}}"></i>
